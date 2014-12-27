@@ -1,0 +1,74 @@
+apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'appengine'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.17'
+    }
+}
+
+appengine {
+    update {
+        useJava7 = true
+    }
+
+    appcfg {
+        email = 'emanuelle.garduno@gmail.com'
+        passIn = true
+
+        logs {
+            severity = 1
+        }
+
+        app {
+            id = 'anet-demo'
+        }
+    }
+}
+
+tasks.withType(GroovyCompile) {
+    groovyOptions.optimizationOptions.indy = true
+}
+
+configurations {
+    all*.exclude module: "commons-logging"
+}
+
+dependencies {
+    compile "com.google.appengine:appengine-api-1.0-sdk:$gaeVersion"
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion:indy"
+    compile 'org.thymeleaf:thymeleaf-spring3:2.0.17'
+
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+
+    compile 'com.googlecode.objectify:objectify:4.0rc1'
+    compile 'javax.servlet:servlet-api:2.5'
+    runtime 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
+
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    runtime "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+    runtime "org.slf4j:slf4j-jdk14:$slf4jVersion"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}

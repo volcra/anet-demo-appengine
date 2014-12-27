@@ -1,0 +1,7 @@
+*.sublime*
+build/
+target/
+.gradle/
+.idea/
+*.iml
+Thumbs.db

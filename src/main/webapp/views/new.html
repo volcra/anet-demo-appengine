@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <ul class="breadcrumb">
+      <li><a href="#/home">Productos</a></li>
+      <li class="active">Nuevo</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row ng-cloak" ng-show="success">
+  <div class="col-12">
+    <div class="alert alert-success">
+      El registro ah sido actualizado exitosamente.
+    </div>
+  </div>
+</div>
+
+<div class="row ng-cloak" ng-show="failure">
+  <div class="col-12">
+    <div class="alert alert-danger">
+      Hubo un error al procesar el cambio.
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'views/form.html'"></div>

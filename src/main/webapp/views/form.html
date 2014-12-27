@@ -1,0 +1,26 @@
+<form name="form" novalidate autocomplete="off">
+  <div class="form-group">
+    <label>Descripci&oacute;n</label>
+    <input class="form-control" type="text" name="description" ng-model="item.description" ng-pattern="/^.{2,150}$/" required maxlength="150">
+    <span class="help-block" ng-class="{'has-error': form.description.$error.pattern}">M&iacute;nimo 2 caracteres y m&aacute;ximo 150</span>
+  </div>
+
+  <div class="form-group">
+    <label>Precio</label>
+    <div class="form-group input-group">
+      <span class="input-group-addon">$</span>
+      <input class="form-control" type="text" name="price" ng-model="item.price" ng-pattern="/^(\d+)(\.\d{2})?$/" required maxlength="15">
+    </div>
+    <span class="help-block" ng-class="{'has-error': form.price.$error.pattern}">Sin signo de $ y m&aacute;ximo dos decimales.</span>
+  </div>
+
+  <div class="form-group">
+    <label>Cantidad</label>
+    <input class="form-control" type="text" name="quantity" ng-model="item.quantity" ng-pattern="/^\d{1,12}$/" required maxlength="12">
+    <span class="help-block" ng-class="{'has-error': form.quantity.$error.pattern}">Puede ser 0 a mayor a 0</span>
+  </div>
+
+  <button type="submit" class="btn btn-primary" ng-click="save()" ng-disabled="form.$invalid">Guardar</button>
+  <a href="#warning" data-toggle="modal" class="btn btn-danger" ng-show="isEdit">Eliminar</a>
+  <a href="#/home" class="btn btn-default">Cancelar</a>
+</form>
