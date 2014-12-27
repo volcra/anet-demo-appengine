@@ -1,19 +1,15 @@
-# Aplicación Web
+# Anet Demo
 
-Anet Demo para GAE.
+Anet Demo Application in App Engine and Groovy
 
-## Ejectuar
-
-Para ejecutar la aplicación ejecuta.
+## Build and Run
 
 ```
-gradlew gaeRun
+gradlew appengineRun
 ```
 
-## Publicar
-
-Para publicar en GAE ejecuta.
+## Deploy
 
 ```
-gradlew gaeUpdate
+gradlew appengineUpdate
 ```
