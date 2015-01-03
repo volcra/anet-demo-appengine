@@ -1,6 +1,6 @@
 # Anet Demo
 
-Anet Demo Application in App Engine and Groovy
+Anet Demo Application in App Engine and Groovy.
 
 ## Build and Run
 
